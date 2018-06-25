@@ -8,14 +8,12 @@
 #ifndef SI4432_H
 #define SI4432_H
 
- #define SI4432_nIRQ             _RB9
  #define SI4432_nSEL             PORTCbits.RC6
- #define SI4432_SCK              _RB8
- #define SI4432_SDO              _RA9
- #define SI4432_SDI              _RB3
- /*external interrupt with nIRQ line hooked*/
- #define SI4432_int_ie       IEC0bits.INT2IE
- #define SI4432_int_flag     IFS0bits.INT2IF
+ //SI4432_nIRQ   ---->      RB9
+ //SI4432_nSEL   ---->      RC6
+ //SI4432_SCK    ---->      RB8
+ //SI4432_SDO    ---->      RA9
+ //SI4432_SDI    ---->      RB3
 
 #define SI4432_WRITE_MASK                               0x80
 
