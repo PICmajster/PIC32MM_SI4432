@@ -259,13 +259,7 @@ typedef enum {
 extern void SI4432_Initialize (void);
 extern void SI4432_ResetTxFifo(void);
 extern void SI4432_ResetRxFifo(void);
-/*
+extern void SI4432_SetMode(SI4432ModeEnum mode);
+extern void SI4432_SetTxPower(uint8_t values);
 
-extern void SI4432_SetMode(SI4432Device *device, SI4432ModeEnum mode);
-extern void SI4432_SetModemConfig(SI4432Device *device, SI4432ModemConfigEnum config);
-extern uint8_t SI4432_ReadStatus(SI4432Device *device);
-extern uint8_t SI4432_ReadRssi(SI4432Device *device);
-extern void SI4432_ResetRxFifo(SI4432Device *device);
-extern void SI4432_HandleInterrupts(void);
-*/
 #endif /* SI4432_H */

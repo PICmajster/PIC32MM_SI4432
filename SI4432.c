@@ -172,3 +172,40 @@ void SI4432_ResetRxFifo(void)
 {
 	SpiWriteRegister(SI4432_REG_08_OPERATING_MODE2 , SI4432_FFCLRRX);
 }
+
+void SI4432_SetMode(SI4432ModeEnum mode)
+{
+	uint8_t reg_value = 0;
+
+		switch(mode) {
+			case SI4432_ModeIdle	: reg_value = SI4432_XTON;
+            break;
+			case SI4432_ModeStandby	: reg_value = 0x00;
+            break;
+			case SI4432_ModeSleep	: reg_value = SI4432_ENWT;
+            break;
+			case SI4432_ModeTune	: reg_value = SI4432_PLLON;
+            break;
+			case SI4432_ModeTx      : reg_value = SI4432_TXON;
+            break;
+			case SI4432_ModeRx      : reg_value = SI4432_RXON;
+            break;
+			default                 : return;
+		}
+		SpiWriteRegister(SI4432_REG_07_OPERATING_MODE1, reg_value);
+}
+
+void SI4432_SetTxPower(uint8_t values)
+{
+   SpiWriteRegister(SI4432_REG_6D_TX_POWER , values);
+   /*values :
+    SI4432_TX_POWER_1DBM
+    SI4432_TX_POWER_2DBM
+    SI4432_TX_POWER_5DBM
+    SI4432_TX_POWER_8DBM
+    SI4432_TX_POWER_11DBM
+    SI4432_TX_POWER_14DBM
+    SI4432_TX_POWER_17DBM
+    SI4432_TX_POWER_20DBM
+    */
+}
